@@ -31,11 +31,19 @@ const Footer = () => {
             <h2 className="text-2xl font-bold mb-4">Follow Us</h2>
             <div className="flex justify-center md:justify-start space-x-4">
               <a
+                href="https://www.instagram.com/akash_halli_/"
+                className="flex items-center gap-2 bg-black text-orange-500 px-4 py-2 rounded-full hover:bg-orange-500 hover:text-black transition-all"
+                aria-label="Instagram"
+              >
+                {/* <i className="fab fa-instagram"></i>{" "} */}
+                <span className="hidden md:inline">Instagram</span>
+              </a>
+              <a
                 href="#"
                 className="flex items-center gap-2 bg-black text-orange-500 px-4 py-2 rounded-full hover:bg-orange-500 hover:text-black transition-all"
                 aria-label="Facebook"
               >
-                <i className="fab fa-facebook"></i>{" "}
+                {/* <i className="fab fa-facebook"></i>{" "} */}
                 <span className="hidden md:inline">Facebook</span>
               </a>
               <a
@@ -43,16 +51,8 @@ const Footer = () => {
                 className="flex items-center gap-2 bg-black text-orange-500 px-4 py-2 rounded-full hover:bg-orange-500 hover:text-black transition-all"
                 aria-label="Twitter"
               >
-                <i className="fab fa-twitter"></i>{" "}
+                {/* <i className="fab fa-twitter"></i>{" "} */}
                 <span className="hidden md:inline">Twitter</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center gap-2 bg-black text-orange-500 px-4 py-2 rounded-full hover:bg-orange-500 hover:text-black transition-all"
-                aria-label="Instagram"
-              >
-                <i className="fab fa-instagram"></i>{" "}
-                <span className="hidden md:inline">Instagram</span>
               </a>
             </div>
           </div>

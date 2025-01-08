@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@arcjet/node": "^1.0.0-alpha.34",
+    "@react-spring/web": "^9.7.5",
     "ava": "file:",
     "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
