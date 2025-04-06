@@ -12,7 +12,9 @@ const Home = () => {
   useEffect(() => {
     const getUserDetails = async () => {
       try {
-        const response = await axios.get(`api/users/profile`);
+        const response = await axios.get(
+          `https://algovisual-8uc4.onrender.com/api/users/profile`
+        );
         setUserDetails(response.data);
       } catch (error) {
         console.error(error);

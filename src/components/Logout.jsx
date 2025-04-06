@@ -9,7 +9,9 @@ function Logout() {
   useEffect(() => {
     const handleLogout = async () => {
       try {
-        await axios.get("/api/users/logout");
+        await axios.get(
+          "https://algovisual-8uc4.onrender.com/api/users/logout"
+        );
         toast.success("Logged out successfully!"); // Show a success
         setLoading(false); // Stop the loading state
         navigate("/login"); // Redirect to the login page

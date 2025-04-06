@@ -47,7 +47,10 @@ const ContactUs = () => {
   const handleFormSubmit = async () => {
     if (validate()) {
       try {
-        const response = await axios.post("/api/contact/submit-form", formData);
+        const response = await axios.post(
+          "https://algovisual-8uc4.onrender.com/api/contact/submit-form",
+          formData
+        );
         console.log("Form submitted successfully:", response.data);
       } catch (error) {
         console.error("Error submitting form:", error);

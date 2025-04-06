@@ -24,7 +24,9 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("/api/users/profile");
+        const response = await axios.get(
+          "https://algovisual-8uc4.onrender.com/api/users/profile"
+        );
         setUserDetails(response.data);
       } catch (error) {
         console.error("Error fetching user details:", error);
@@ -61,7 +63,10 @@ const Profile = () => {
     }
 
     try {
-      await axios.post("/api/users/update-profile", updatedData);
+      await axios.post(
+        "https://algovisual-8uc4.onrender.com/api/users/update-profile",
+        updatedData
+      );
       setIsSaving(false); // Stop the saving animation
       setIsEditing(false); // Exit edit mode after save
     } catch (error) {
@@ -81,14 +86,16 @@ const Profile = () => {
     }
   };
 
-  const url = "/api/proxy/certificate";
+  const url = "https://algovisual-8uc4.onrender.com/api/proxy/certificate";
   const currentDate = new Date(Date.now());
   const formattedDate = currentDate.toISOString().split("T")[0];
 
   const handleGenerateCertificate = async () => {
     try {
       // Fetch user tracking data
-      const response = await axios.get(`/api/user-tracking/${userDetails._id}`);
+      const response = await axios.get(
+        `https://algovisual-8uc4.onrender.com/api/user-tracking/${userDetails._id}`
+      );
       const trackingData = response.data;
 
       // Extract algorithm data

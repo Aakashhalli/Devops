@@ -11,7 +11,9 @@ const Header = () => {
   useEffect(() => {
     const fetchProfileImage = async () => {
       try {
-        const response = await axios.get("/api/users/profile");
+        const response = await axios.get(
+          "https://algovisual-8uc4.onrender.com/api/users/profile"
+        );
         setProfileImage(response.data.profileImage);
       } catch (error) {
         console.error("Error fetching profile image:", error);

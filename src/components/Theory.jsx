@@ -12,9 +12,12 @@ function Theory({ algorithmName }) {
 
   const handleMarkAsComplete = async () => {
     try {
-      const response = await axios.patch(`/api/user-tracking/theory`, {
-        algorithmName,
-      });
+      const response = await axios.patch(
+        `https://algovisual-8uc4.onrender.com/api/user-tracking/theory`,
+        {
+          algorithmName,
+        }
+      );
       if (response.status === 200) {
         setMarkedComplete(true);
         toast.success("Theory completed.");

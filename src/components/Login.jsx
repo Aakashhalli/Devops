@@ -14,10 +14,13 @@ function Login() {
 
   async function onSubmit(data) {
     try {
-      const response = await axios.post("/api/users/login", {
-        email: data.email,
-        password: data.password,
-      });
+      const response = await axios.post(
+        "https://algovisual-8uc4.onrender.com/api/users/login",
+        {
+          email: data.email,
+          password: data.password,
+        }
+      );
       toast.success(`Login successful! Welcome ${response.data.name}`);
       navigate("/");
     } catch (error) {

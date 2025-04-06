@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import express from "express";
 import dotenv from "dotenv";
 import path from "path";
@@ -12,10 +13,20 @@ import questionRoutes from "./src/routes/questionRoutes.js";
 import contactRoutes from "./src/routes/contactRoutes.js";
 import userTrackingRoutes from "./src/routes/userTrackingRoutes.js";
 import proxyRoutes from "./src/routes/proxyRoutes.js";
-dotenv.config();
 
-const PORT = process.env.VITE_PORT || 8000;
 const app = express();
+app.use(express.json());
+const _dirname = path.dirname("");
+const distPath = path.join(_dirname, "../dist");
+app.use(express.static(distPath));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
+dotenv.config();
+const PORT = process.env.VITE_PORT || 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -25,7 +36,6 @@ app.use(cors());
 app.set("trust proxy", true);
 app.use((req, res, next) => {
   const clientIp = requestIp.getClientIp(req);
-  // console.log("Client IP:", clientIp);
   req.headers["x-forwarded-for"] = clientIp;
   next();
 });

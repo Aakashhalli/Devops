@@ -1,4 +1,9 @@
+import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 const generateCertificate = async (req, res) => {
+  console.log("/api/generate-certificate called");
+
   try {
     console.log("Incoming request body:", req.body);
 

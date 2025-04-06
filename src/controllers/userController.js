@@ -169,9 +169,9 @@ const registerUser = async (req, res) => {
               `,
       attachments: [
         {
-          filename: "V-Photoroom.png", // Name of your logo file
-          path: "C:/Users/akash/OneDrive/Desktop/AVA - Copy/public/V-Photoroom.png", // Update this path to the actual path of the logo
-          cid: "logo", // Content ID for inline attachment
+          filename: "V-Photoroom.png",
+          path: "https://asset.cloudinary.com/dzvjajjij/51727b5947563a2d427404aeae6385e0",
+          cid: "logo",
         },
       ],
     });
@@ -255,7 +255,7 @@ const loginUser = async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET_KEY, {
-      expiresIn: "1d",
+      expiresIn: "10d",
     });
     res.cookie("token", token);
 
@@ -275,7 +275,7 @@ const getUserProfile = async (req, res) => {
   try {
     const user = req.user;
     // console.log("API /api/profile");
-
+    
     res.status(200).json({
       _id: user._id,
       firstname: user.firstname,

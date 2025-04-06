@@ -21,12 +21,15 @@ function Signup() {
     setLoading(true);
     try {
       console.log(data);
-      const response = await axios.post("/api/users/signup", {
-        firstname: data.firstname,
-        lastname: data.lastname,
-        email: data.email,
-        password: data.password,
-      });
+      const response = await axios.post(
+        "https://algovisual-8uc4.onrender.com/api/users/signup",
+        {
+          firstname: data.firstname,
+          lastname: data.lastname,
+          email: data.email,
+          password: data.password,
+        }
+      );
       setIsOtpSent(true);
       setEmail(data.email);
       setUserData(data);
@@ -66,14 +69,17 @@ function Signup() {
 
       const profileImageUrl = cloudinaryResponse.data.secure_url;
 
-      const verificationResponse = await axios.post("/api/users/verify-otp", {
-        email,
-        otp,
-        password: userData.password,
-        firstname: userData.firstname,
-        lastname: userData.lastname,
-        profileImage: profileImageUrl, // Pass the correct field
-      });
+      const verificationResponse = await axios.post(
+        "https://algovisual-8uc4.onrender.com/api/users/verify-otp",
+        {
+          email,
+          otp,
+          password: userData.password,
+          firstname: userData.firstname,
+          lastname: userData.lastname,
+          profileImage: profileImageUrl, // Pass the correct field
+        }
+      );
 
       if (verificationResponse.data.message) {
         toast(verificationResponse.data.message);

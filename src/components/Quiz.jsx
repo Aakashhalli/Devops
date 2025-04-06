@@ -47,7 +47,9 @@ const Quiz = ({ algorithmName }) => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("/api/users/profile");
+        const response = await axios.get(
+          "https://algovisual-8uc4.onrender.com/api/users/profile"
+        );
         setUserDetails(response.data);
       } catch (error) {
         console.error("Error fetching user details:", error);
@@ -61,7 +63,9 @@ const Quiz = ({ algorithmName }) => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get(`/api/questions/${algorithmName}`);
+        const response = await axios.get(
+          `https://algovisual-8uc4.onrender.com/api/questions/${algorithmName}`
+        );
         const randomizedQuestions = randomizeQuestions(response.data);
         setQuestions(randomizedQuestions);
       } catch (error) {
@@ -102,11 +106,14 @@ const Quiz = ({ algorithmName }) => {
     setQuizCompleted(true);
 
     try {
-      const response = await axios.post("/api/user-tracking/quiz-score", {
-        userId: userDetails._id, // Replace with the logged-in user's ID
-        algorithmName, // Pass the current algorithm's name
-        quizMarks: score,
-      });
+      const response = await axios.post(
+        "https://algovisual-8uc4.onrender.com/api/user-tracking/quiz-score",
+        {
+          userId: userDetails._id, // Replace with the logged-in user's ID
+          algorithmName, // Pass the current algorithm's name
+          quizMarks: score,
+        }
+      );
       // console.log(response.data.message);
       toast.success("Quiz completed successfully!");
     } catch (error) {
@@ -280,7 +287,7 @@ const Quiz = ({ algorithmName }) => {
           </label>
         ))}
       </div>
-      <div className="flex justify-between mt-6">
+      <div className="flex justify-between mt-6 max-w-20 gap-3">
         {currentQuestion > 0 && (
           <button
             className="bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-700"
